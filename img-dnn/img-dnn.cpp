@@ -165,7 +165,8 @@ class Worker {
         }
 
         void join() {
-            //pthread_join(thread, nullptr);
+	    cout << "Joining thread: " << tid << endl;
+            pthread_join(thread, nullptr);
         }
 
         static long correctDecodes() { return correct; }
@@ -232,7 +233,7 @@ main(int argc, char** argv)
     for (int t = 0; t < nThreads; ++t) {
         workers[t].run();
     }
-
+    cout << "Joining pthreads" << endl;
     for (int t = 0; t < nThreads; ++t) {
         workers[t].join();
     }
