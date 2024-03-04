@@ -614,81 +614,80 @@ struct test_thread {
     }
     void run(const String &test) {
 
-        assert(test == "mycsba");
+	printf("Running Test\n");
+        //kvtest_mycsba(server_);
 
-        kvtest_mycsba(server_);
-
-        // if (test == "rw1")
-        //     kvtest_rw1(server_);
-        // else if (test == "palma")
-        //     kvtest_palma(server_);
-        // else if (test == "palmb")
-        //     kvtest_palmb(server_);
-        // else if (test == "rw1fixed")
-        //     kvtest_rw1fixed(server_);
-        // else if (test == "rw1long")
-        //     kvtest_rw1long(server_);
-        // else if (test == "rw2")
-        //     kvtest_rw2(server_);
-        // else if (test == "rw2fixed")
-        //     kvtest_rw2fixed(server_);
-        // else if (test == "rw2g90")
-        //     kvtest_rw2g90(server_);
-        // else if (test == "rw2fixedg90")
-        //     kvtest_rw2fixedg90(server_);
-        // else if (test == "rw2g98")
-        //     kvtest_rw2g98(server_);
-        // else if (test == "rw2fixedg98")
-        //     kvtest_rw2fixedg98(server_);
-        // else if (test == "rw3")
-        //     kvtest_rw3(server_);
-        // else if (test == "rw4")
-        //     kvtest_rw4(server_);
-        // else if (test == "rw4fixed")
-        //     kvtest_rw4fixed(server_);
-        // else if (test == "wd1")
-        //     kvtest_wd1(10000000, 1, server_);
-        // else if (test == "wd1m1")
-        //     kvtest_wd1(100000000, 1, server_);
-        // else if (test == "wd1m2")
-        //     kvtest_wd1(1000000000, 4, server_);
-        // else if (test == "same")
-        //     kvtest_same(server_);
-        // else if (test == "rwsmall24")
-        //     kvtest_rwsmall24(server_);
-        // else if (test == "rwsep24")
-        //     kvtest_rwsep24(server_);
-        // else if (test == "wscale")
-        //     kvtest_wscale(server_);
-        // else if (test == "ruscale_init")
-        //     kvtest_ruscale_init(server_);
-        // else if (test == "rscale") {
-        //     if (server_.ti_->ti_index < ::rscale_ncores)
-        //         kvtest_rscale(server_);
-        // } else if (test == "uscale")
-        //     kvtest_uscale(server_);
-        // else if (test == "bdb")
-        //     kvtest_bdb(server_);
-        // else if (test == "wcol1")
-        //     kvtest_wcol1(server_, 31949 + server_.id() % 48, 5000000);
-        // else if (test == "rcol1")
-        //     kvtest_rcol1(server_, 31949 + server_.id() % 48, 5000000);
-        // else if (test == "scan1")
-        //     kvtest_scan1(server_, 0);
-        // else if (test == "rscan1")
-        //     kvtest_rscan1(server_, 0);
-        // else if (test == "scan1q80")
-        //     kvtest_scan1(server_, 0.8);
-        // else if (test == "rscan1q80")
-        //     kvtest_rscan1(server_, 0.8);
-        // else if (test == "splitremove1")
-        //     kvtest_splitremove1(server_);
-        // else if (test == "ycsbk")
-        //     kvtest_ycsbk(server_);
-        // else if (test == "mycsba")
-        //     kvtest_mycsba(server_);
-        // else
-        //     server_.fail("unknown test %s", test.c_str());
+        if (test == "rw1")
+            kvtest_rw1(server_);
+        else if (test == "palma")
+            kvtest_palma(server_);
+        else if (test == "palmb")
+            kvtest_palmb(server_);
+        else if (test == "rw1fixed")
+            kvtest_rw1fixed(server_);
+        else if (test == "rw1long")
+            kvtest_rw1long(server_);
+        else if (test == "rw2")
+            kvtest_rw2(server_);
+        else if (test == "rw2fixed")
+            kvtest_rw2fixed(server_);
+        else if (test == "rw2g90")
+            kvtest_rw2g90(server_);
+        else if (test == "rw2fixedg90")
+            kvtest_rw2fixedg90(server_);
+        else if (test == "rw2g98")
+            kvtest_rw2g98(server_);
+        else if (test == "rw2fixedg98")
+            kvtest_rw2fixedg98(server_);
+        else if (test == "rw3")
+            kvtest_rw3(server_);
+        else if (test == "rw4")
+            kvtest_rw4(server_);
+        else if (test == "rw4fixed")
+            kvtest_rw4fixed(server_);
+        else if (test == "wd1")
+            kvtest_wd1(10000000, 1, server_);
+        else if (test == "wd1m1")
+            kvtest_wd1(100000000, 1, server_);
+        else if (test == "wd1m2")
+            kvtest_wd1(1000000000, 4, server_);
+        else if (test == "same")
+            kvtest_same(server_);
+        else if (test == "rwsmall24")
+            kvtest_rwsmall24(server_);
+        else if (test == "rwsep24")
+            kvtest_rwsep24(server_);
+        else if (test == "wscale")
+            kvtest_wscale(server_);
+        else if (test == "ruscale_init")
+            kvtest_ruscale_init(server_);
+        else if (test == "rscale") {
+            if (server_.ti_->ti_index < ::rscale_ncores)
+                kvtest_rscale(server_);
+        } else if (test == "uscale")
+            kvtest_uscale(server_);
+        else if (test == "bdb")
+            kvtest_bdb(server_);
+        else if (test == "wcol1")
+            kvtest_wcol1(server_, 31949 + server_.id() % 48, 5000000);
+        else if (test == "rcol1")
+            kvtest_rcol1(server_, 31949 + server_.id() % 48, 5000000);
+        else if (test == "scan1")
+            kvtest_scan1(server_, 0);
+        else if (test == "rscan1")
+            kvtest_rscan1(server_, 0);
+        else if (test == "scan1q80")
+            kvtest_scan1(server_, 0.8);
+        else if (test == "rscan1q80")
+            kvtest_rscan1(server_, 0.8);
+        else if (test == "splitremove1")
+            kvtest_splitremove1(server_);
+        else if (test == "ycsbk")
+            kvtest_ycsbk(server_);
+        else if (test == "mycsba")
+            kvtest_mycsba(server_);
+        else
+            server_.fail("unknown test %s", test.c_str());
     }
     static T *table_;
     static unsigned active_threads_;

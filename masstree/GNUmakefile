@@ -5,9 +5,6 @@ TBENCHDIR= ../harness
 CFLAGS = -g -W -Wall -O2 -I$(TBENCHDIR) --static
 DEPSDIR := .deps
 DEPCFLAGS = -MD -MF $(DEPSDIR)/$*.d -MP
-ifeq ($(strip $(MEMMGR)), )
-  MEMMGR = -ltcmalloc_minimal
-endif
 ifneq ($(strip $(KEYSWAP)), )
   CFLAGS += -DKEYSWAP
 endif

@@ -156,8 +156,9 @@ template <int SIZE, typename BARRIER> struct sized_compiler_operations;
 template <typename B> struct sized_compiler_operations<1, B> {
     typedef char type;
     static inline type xchg(type* object, type new_value) {
-	asm volatile("xchgb %0,%1"
-		     : "+q" (new_value), "+m" (*object));
+	//asm volatile("xchgb %0,%1"
+	//	     : "+r" (new_value), "+m" (*object));
+	new_value = __atomic_exchange_n(object, new_value, __ATOMIC_SEQ_CST);
 	B()();
 	return new_value;
     }
@@ -212,8 +213,9 @@ template <typename B> struct sized_compiler_operations<2, B> {
     typedef int16_t type;
 #endif
     static inline type xchg(type* object, type new_value) {
-	asm volatile("xchgw %0,%1"
-		     : "+r" (new_value), "+m" (*object));
+	//asm volatile("xchgw %0,%1"
+	//	     : "+r" (new_value), "+m" (*object));
+	new_value = __atomic_exchange_n(object, new_value, __ATOMIC_SEQ_CST);
 	B()();
 	return new_value;
     }
