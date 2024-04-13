@@ -162,15 +162,15 @@
       <!-- ROB stats, both RS and Phy based OoOs have ROB
       performance simulator should capture the difference on accesses,
       otherwise, McPAT has to guess based on number of committed instructions. -->
-      <stat name="ROB_reads" value="37515343" />
-      <stat name="ROB_writes" value="35049130" />
+      <stat name="ROB_reads" value="0" />
+      <stat name="ROB_writes" value="0" />
       <!-- RAT accesses -->
       <stat name="rename_reads" value="18952358" />
       <!--lookup in renaming logic -->
-      <stat name="rename_writes" value="int(stats.system.cpu_cluster.cpus.rename.RenamedOperands * stats.system.cpu_cluster.cpus.rename.intLookups / stats.system.cpu_cluster.cpus.rename.lookups)" />
+      <stat name="rename_writes" value="10767309" />
       <!--update dest regs. renaming logic -->
-      <stat name="fp_rename_reads" value="stats.system.cpu_cluster.cpus.rename.fpLookups" />
-      <stat name="fp_rename_writes" value="int(stats.system.cpu_cluster.cpus.rename.RenamedOperands * stats.system.cpu_cluster.cpus.rename.fpLookups / stats.system.cpu_cluster.cpus.rename.lookups)" />
+      <stat name="fp_rename_reads" value="0" />
+      <stat name="fp_rename_writes" value="0" />
       <!-- decode and rename stage use this, should be total ic - nop -->
       <!-- Inst window stats -->
       <stat name="inst_window_reads" value="58066913" />
@@ -181,9 +181,9 @@
       <stat name="fp_inst_window_wakeup_accesses" value="0" />
       <!--  RF accesses -->
       <stat name="int_regfile_reads" value="64456687" />
-      <stat name="float_regfile_reads" value="stats.system.cp_cluster.cpus.fpRegfileReads" />
+      <stat name="float_regfile_reads" value="0" />
       <stat name="int_regfile_writes" value="6500170" />
-      <stat name="float_regfile_writes" value="stats.system.cpu_cluster.cpus.fpRegfileWrites" />
+      <stat name="float_regfile_writes" value="0" />
       <!-- accesses to the working reg -->
       <stat name="function_calls" value="313724" />
       <stat name="context_switches" value="36" />
@@ -237,8 +237,8 @@
         </component>
       <component id="system.core.itlb" name="itlb">
         <param name="number_entries" value="64" />
-        <stat name="total_accesses" value="stats.system.cpu_cluster.cpus.0.itb_walker_cache.tags.tag_accesses" />
-        <stat name="total_misses" value="stats.system.cpu_cluster.cpus.0.itb_walker_cache.no_allocate_misses" />
+        <stat name="total_accesses" value="0" />
+        <stat name="total_misses" value="0" />
         <stat name="conflicts" value="0" />
         <!-- there is no write requests to itlb although writes happen to itlb after miss, 
         which is actually a replacement -->
@@ -258,8 +258,8 @@
       <component id="system.core.dtlb" name="dtlb">
         <param name="number_entries" value="64" />
         <!--dual threads-->
-        <stat name="total_accesses" value="stats.system.cpu_cluster.cpus.0.dtb_walker_cache.tags.data_accesses" />
-        <stat name="total_misses" value="stats.system.cpu_cluster.cpus.0.dtb_walker_cache.no_allocate_misses" />
+        <stat name="total_accesses" value="0" />
+        <stat name="total_misses" value="0" />
         <stat name="conflicts" value="0" />
       </component>
       <component id="system.core.dcache" name="dcache">

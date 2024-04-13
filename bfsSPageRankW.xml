@@ -148,9 +148,9 @@
       <stat name="branch_mispredictions" value="450443" />
       <stat name="load_instructions" value="37172551" />
       <stat name="store_instructions" value="7310740" />
-      <stat name="committed_instructions" value="stats.system.cpu_cluster.cpus.committedOps" />
-      <stat name="committed_int_instructions" value="stats.system.cpu_cluster.cpus.commit.integer" />
-      <stat name="committed_fp_instructions" value="stats.system.cpu_cluster.cpus.commit.floating" />
+      <stat name="committed_instructions" value="115321732" />
+      <stat name="committed_int_instructions" value="96705327" />
+      <stat name="committed_fp_instructions" value="0" />
       <stat name="pipeline_duty_cycle" value="1" />
       <!--<=1, runtime_ipc/peak_ipc; averaged for all cores if homogeneous -->
       <!-- the following cycle stats are used for heterogeneous cores only, 
@@ -162,15 +162,15 @@
       <!-- ROB stats, both RS and Phy based OoOs have ROB
       performance simulator should capture the difference on accesses,
       otherwise, McPAT has to guess based on number of committed instructions. -->
-      <stat name="ROB_reads" value="457864263" />
-      <stat name="ROB_writes" value="272997664" />
+      <stat name="ROB_reads" value="266481979" />
+      <stat name="ROB_writes" value="240046033" />
       <!-- RAT accesses -->
       <stat name="rename_reads" value="164663216" />
       <!--lookup in renaming logic -->
-      <stat name="rename_writes" value="int(stats.system.cpu_cluster.cpus.rename.RenamedOperands * stats.system.cpu_cluster.cpus.rename.intLookups / stats.system.cpu_cluster.cpus.rename.lookups)" />
+      <stat name="rename_writes" value="117756656" />
       <!--update dest regs. renaming logic -->
-      <stat name="fp_rename_reads" value="stats.system.cpu_cluster.cpus.rename.fpLookups" />
-      <stat name="fp_rename_writes" value="int(stats.system.cpu_cluster.cpus.rename.RenamedOperands * stats.system.cpu_cluster.cpus.rename.fpLookups / stats.system.cpu_cluster.cpus.rename.lookups)" />
+      <stat name="fp_rename_reads" value="0" />
+      <stat name="fp_rename_writes" value="0" />
       <!-- decode and rename stage use this, should be total ic - nop -->
       <!-- Inst window stats -->
       <stat name="inst_window_reads" value="336843608" />
@@ -181,9 +181,9 @@
       <stat name="fp_inst_window_wakeup_accesses" value="0" />
       <!--  RF accesses -->
       <stat name="int_regfile_reads" value="821566446" />
-      <stat name="float_regfile_reads" value="stats.system.cpu_cluster.cpus.fpRegfileReads" />
+      <stat name="float_regfile_reads" value="0" />
       <stat name="int_regfile_writes" value="68982517" />
-      <stat name="float_regfile_writes" value="stats.system.cpu_cluster.cpus.fpRegfileWrites" />
+      <stat name="float_regfile_writes" value="0" />
       <!-- accesses to the working reg -->
       <stat name="function_calls" value="828916" />
       <stat name="context_switches" value="611" />
@@ -237,8 +237,8 @@
         </component>
       <component id="system.core.itlb" name="itlb">
         <param name="number_entries" value="64" />
-        <stat name="total_accesses" value="stats.system.cpu_cluster.cpus.0.itb_walker_cache.tags.tag_accesses" />
-        <stat name="total_misses" value="stats.system.cpu_cluster.cpus.0.itb_walker_cache.no_allocate_misses" />
+        <stat name="total_accesses" value="0" />
+        <stat name="total_misses" value="0" />
         <stat name="conflicts" value="0" />
         <!-- there is no write requests to itlb although writes happen to itlb after miss, 
         which is actually a replacement -->
@@ -258,8 +258,8 @@
       <component id="system.core.dtlb" name="dtlb">
         <param name="number_entries" value="64" />
         <!--dual threads-->
-        <stat name="total_accesses" value="stats.system.cpu_cluster.cpus.0.dtb_walker_cache.tags.data_accesses" />
-        <stat name="total_misses" value="stats.system.cpu_cluster.cpus.0.dtb_walker_cache.no_allocate_misses" />
+        <stat name="total_accesses" value="0" />
+        <stat name="total_misses" value="0" />
         <stat name="conflicts" value="0" />
       </component>
       <component id="system.core.dcache" name="dcache">
